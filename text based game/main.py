@@ -1,7 +1,17 @@
 import Player
+import time
 import MainMenu
+import random
+import Sceniros
 
-class main:
+name = input("Enter your character's name: ")
+inventory = []
+Strength = random.randint(1, 10)
+Intelligence = random.randint(1, 10)
+Agility = random.randint(1, 10)
+Vision = random.randint(1, 10)
+
+if __name__ == "__main__":
     MainMenu.Start_screen()
 
-    Player.create_character()
+    Sceniros.starting_point()
