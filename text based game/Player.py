@@ -1,19 +1,37 @@
 from tkinter import Place
 import random
+import main
+import MainMenu
+import time
 
-def create_character():
-    name = input("Enter your character's name: ")
+def show_stats(name, Strength, Intelligence, Agility, Vision):
+    print(f"{name}'s stats:\n")
+    print(f"Strength: {Strength}")
+    print(f"Intelligence: {Intelligence}")
+    print(f"Agility: {Agility}")
+    print(f"Vision: {Vision}")
 
-    ##Stats
-    Strangth = random.randint(1,10)
-    print(f"{name}, your strangth stat : {Strangth}")
+def show_inventory(inventory):
+    if not inventory:
+        print("Your inventory is empty.")
+        time.sleep(.5)
+    else:
+        print("Your inventory contains:")
+        for item in inventory:
+            print(f"- {item}")
 
-    Intelligence = random.randint(1,10)
-    print(f"{name}, your intelligence stat : {Intelligence}")
+def add_to_inventory(inventory, item):
+    inventory.append(item)
+    print(f"{item} has been added to your inventory.")
+    return inventory
 
-    Dexterity = random.randint(1,10)
-    print(f"{name}, your dexterity stat : {Dexterity}")
+def remove_from_inventory(inventory, item):
+    if item in inventory:
+        inventory.remove(item)
+        print(f"{item} has been removed from your inventory.")
+    else:
+        print(f"{item} is not in your inventory.")
+    return inventory
 
-    Body = random.randint(1,10)
-    print(f"{name}, your body stat : {Body}")
-    
+if __name__ == "__main__":
+    print("This is the Player module.")
