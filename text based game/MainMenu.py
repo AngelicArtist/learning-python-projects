@@ -1,6 +1,7 @@
 
 def Start_screen():
-    print(f"Welcome to the Dark Forest\n")
+
+    print(f"Welcome to a short story\n")
 
     while True:
         choice = input("Do you wish to begin? (y/n)\n")
@@ -9,7 +10,8 @@ def Start_screen():
         elif choice.lower() == 'n':
             print("Maybe next time")
             exit()
-                       
-        
 
-   
+# try an add a saved game function                       
+        
+if __name__ == "__main__":
+    Start_screen()   
