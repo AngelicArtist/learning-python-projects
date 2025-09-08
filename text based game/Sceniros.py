@@ -3,6 +3,7 @@ import time
 import MainMenu
 import random
 import main
+import enemies
 
 def starting_point():
     """The first scenario of the game."""
@@ -37,7 +38,7 @@ def hallway():
     print("You are in a long, dark hallway. There are doors on either side of you.\n")
 
     while True:
-        choice = input(f"What will you do?\n 1.Check your inventory.\n 2.Walk down the hallway.\n 3.Open the door to your left\n 4.Go back to the room")
+        choice = input(f"What will you do?\n 1.Check your inventory.\n 2.Walk down the hallway.\n 3.Open the door to your left\n 4.Go back to the room\n")
         if choice == '1':
             time.sleep(1)
             Player.show_inventory(main.inventory)
@@ -49,6 +50,9 @@ def hallway():
             print("\nYou notice that the door is slightly ajar.\n You push it open and step inside.\n")
             time.sleep(1)
             First_room()
+        if choice == '4':
+            print("\nYou go back to the room.\n")
+            return starting_point()
 
 def First_room():
     print("You enter a small room with a table and a chair. On the table, there is a key.\n")
@@ -68,10 +72,36 @@ def First_room():
             print("\nYou explore the room and you find a hidden compartment under the floorboards.\n While searching the compartmant you only find a crowbar.\n")
             main.inventory = Player.add_to_inventory(main.inventory, "Crowbar")
             time.sleep(1)
-
-        
+     
 def hallway_part2():
     print("You are in a long, dark hallway. There are doors on either side of you.\n")
+    while True:
+        Choice = input(f"What will you do?\n 1.Check your inventory.\n 2.Open the door to your left\n 3.Open the door to the right\n 4.Go down the stairs\n")
+        if Choice == '1':
+            time.sleep(1)
+            Player.show_inventory(main.inventory)
+        elif Choice == '2':
+            print("\nYou notice that the door is slightly ajar.\n You push it open and step inside.\n")
+            time.sleep(1)
+            enemies.Crayzed_Hotel_Suriver1()
+
+def CHS_Room():
+    print("After your squable with the crazy hotel surivor you find yourself in a dimly lit room.\n")
+    while True:
+        Choice = input(f"What will you do?\n 1.Check your inventory.\n 2.Explore the room\n 3.search the cray persons body\n")
+        if Choice == '1':
+            time.sleep(1)
+            Player.show_inventory(main.inventory)
+        elif Choice == '2':
+            print("\nYou explore the room and find only some food, along with weird markings on the walls that match the ones on the doors \n")
+            Player.add_to_inventory(main.inventory, "Food")
+            time.sleep(1)    
+        elif Choice == '3':
+            print("\nYou search the body and find a note that reads 'I tryed I really did, I did everything I could but it wasnt enough'\n")
+            time.sleep(1)
+
+
+
 
 if __name__ == "__main__":
     First_room()
